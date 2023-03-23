@@ -34,7 +34,7 @@ public class overlayManager : MonoBehaviour
         string ninjaNumber = ninjaNumberTxt.text.Substring(0, 1);
         if(ninjaNumber == "5")
         {
-            return "White";
+            return "Blue";
         }
         else if(ninjaNumber == "4"){
             return "Green";

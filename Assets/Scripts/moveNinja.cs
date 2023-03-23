@@ -43,6 +43,18 @@ public class moveNinja : MonoBehaviour
 
     public bool canIMove = true;
     // Start is called before the first frame update
+
+    public Animator ninjaAnimator;
+    public bool isMoving = false;
+    public float previousPosition;
+    public bool isGrounded = false;
+    public bool playJump = false;
+    public bool playFall = false;
+    public bool playIdleAgain = false;
+    public bool startCheckingGround = false;
+    public int direction = 1;
+    public bool lockRotation = false;
+    float unlockTime = 0.5f;
     void Start()
     {
         //Used to see if any ninja clones are able to move. 
@@ -79,6 +91,26 @@ public class moveNinja : MonoBehaviour
         //Getting gameobject where name is footposition (thats also a child of the ninja) - used to determine if the player is grounded
         footPos = this.gameObject.GetComponentsInChildren<Transform>().ToList().Find(x => x.name.Contains("FootPosition") == true);
 
+        ninjaAnimator = this.gameObject.GetComponent<Animator>();
+        isMoving = false;
+        previousPosition = this.gameObject.transform.position.x;
+        isGrounded = true;
+        playJump = false;
+        playFall = false;
+        playIdleAgain = false;
+        startCheckingGround = false;
+        direction = 1;
+        lockRotation = false;
+        unlockTime = 0.5f;
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Blockage"))
+        {
+            lockRotation = true;
+        }
     }
 
     // Update is called once per frame
@@ -117,6 +149,113 @@ public class moveNinja : MonoBehaviour
                 //Prevents the object from going to sleep. Source: "YagoRG" - https://answers.unity.com/questions/478415/ontriggerstay-doesnt-work-if-not-moving.html (This is for colliding with buttons)
                 prevNinja.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.zero);
             }
+
+
+            //Animation
+
+            if(isGrounded == true)
+            {
+                playJump = true;
+
+                //Check if moving: https://forum.unity.com/threads/check-if-an-object-is-moving.149003/
+                if (previousPosition == this.gameObject.transform.position.x)
+                {
+                    isMoving = false;
+                    ninjaAnimator.SetBool("isMoving", false);
+                }
+                else
+                {
+                    isMoving = true;
+                    ninjaAnimator.SetBool("isMoving", true);
+                }
+                if(playIdleAgain == true)
+                {
+                    ninjaAnimator.SetTrigger("landed");
+                    playIdleAgain = false;
+                }
+            }
+            else
+            {
+                if(playJump == true)
+                {
+                    playJump = false;
+                    ninjaAnimator.SetTrigger("jumped");
+                    playFall = true;
+                }
+                if(playFall == true)
+                {
+                    if(this.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
+                    {
+                        playFall = false;
+                        ninjaAnimator.SetTrigger("jumpEnding");
+                        playIdleAgain = true;
+                        startCheckingGround = true;
+                    }
+                }
+            }
+
+            if(startCheckingGround == true)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(footPos.position, Vector2.down, closeEnough, groundLayers);
+
+                if (hit.collider)
+                {
+                    startCheckingGround = false;
+                    isGrounded = true;
+                }
+
+            }
+
+
+            if(lockRotation == false)
+            {
+                //Swap the way the ninja is facing depending on how they move.
+                if (direction == 1)
+                {
+                    if (previousPosition - this.gameObject.transform.position.x > 0)
+                    {
+                        //Debug.Log("1");
+                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
+                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
+                        //{
+                        direction = -1;
+                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
+
+                        //}
+                    }
+
+                }
+                if (direction == -1)
+                {
+                    if (previousPosition - this.gameObject.transform.position.x < 0)
+                    {
+                        //Debug.Log("0");
+                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
+                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
+                        //{
+                        direction = 1;
+                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
+                        //}
+
+                    }
+                }
+
+            }
+            else
+            {
+                //When you run into a wall, prevent flipping left/right for 0.5 seconds.
+                unlockTime -= Time.deltaTime;
+                if(unlockTime <= 0)
+                {
+                    lockRotation = false;
+                    unlockTime = 0.5f;
+                }
+            }
+
+
+
+            previousPosition = this.gameObject.transform.position.x;
+
         }
 
     }
@@ -210,6 +349,7 @@ public class moveNinja : MonoBehaviour
             //If the player is on the ground, they can jump.
             if (hit.collider)
             {
+                isGrounded = false;
                 rb.AddForce(Vector3.up * jumpForce);
             }
         }

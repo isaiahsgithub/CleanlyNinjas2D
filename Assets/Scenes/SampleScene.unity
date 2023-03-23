@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 126083508}
   - component: {fileID: 126083507}
   - component: {fileID: 126083509}
+  - component: {fileID: 126083510}
   m_Layer: 6
   m_Name: GreenSquare
   m_TagString: Untagged
@@ -655,7 +656,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf30be90c1655d14683394ca7d158ab5, type: 3}
   m_Color: {r: 0, g: 1, b: 0.004898548, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -679,18 +680,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01650476, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1.0975}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5125208, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &126083508
 Rigidbody2D:
@@ -744,6 +745,36 @@ MonoBehaviour:
   areAnyTrue: 0
   playbackLocs: 00000000000000000000000000000000
   canIMove: 1
+  ninjaAnimator: {fileID: 0}
+  isMoving: 0
+  previousPosition: 0
+  isGrounded: 0
+  playJump: 0
+  playFall: 0
+  playIdleAgain: 0
+  startCheckingGround: 0
+  direction: 1
+  lockRotation: 0
+--- !u!95 &126083510
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126083504}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2646e5d75d538b442b44b506d299bde4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &133850467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,6 +3576,7 @@ GameObject:
   - component: {fileID: 1021739070}
   - component: {fileID: 1021739073}
   - component: {fileID: 1021739072}
+  - component: {fileID: 1021739074}
   m_Layer: 6
   m_Name: PurpleSquare
   m_TagString: Untagged
@@ -3596,6 +3628,16 @@ MonoBehaviour:
   areAnyTrue: 0
   playbackLocs: 00000000000000000000000000000000
   canIMove: 1
+  ninjaAnimator: {fileID: 0}
+  isMoving: 0
+  previousPosition: 0
+  isGrounded: 0
+  playJump: 0
+  playFall: 0
+  playIdleAgain: 0
+  startCheckingGround: 0
+  direction: 1
+  lockRotation: 0
 --- !u!212 &1021739071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3637,7 +3679,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf30be90c1655d14683394ca7d158ab5, type: 3}
   m_Color: {r: 0.7866421, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3661,18 +3703,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016504765, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1.0975}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5125208, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1021739073
 Rigidbody2D:
@@ -3695,6 +3737,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &1021739074
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021739068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2646e5d75d538b442b44b506d299bde4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1029458494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4439,7 @@ GameObject:
   - component: {fileID: 1365005319}
   - component: {fileID: 1365005318}
   - component: {fileID: 1365005320}
+  - component: {fileID: 1365005321}
   m_Layer: 6
   m_Name: YellowSquare
   m_TagString: Untagged
@@ -4441,7 +4504,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf30be90c1655d14683394ca7d158ab5, type: 3}
   m_Color: {r: 0.97911155, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4465,18 +4528,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01650476, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1.0975}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5125208, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1365005319
 Rigidbody2D:
@@ -4529,6 +4592,36 @@ MonoBehaviour:
   areAnyTrue: 0
   playbackLocs: 00000000000000000000000000000000
   canIMove: 1
+  ninjaAnimator: {fileID: 0}
+  isMoving: 0
+  previousPosition: 0
+  isGrounded: 0
+  playJump: 0
+  playFall: 0
+  playIdleAgain: 0
+  startCheckingGround: 0
+  direction: 1
+  lockRotation: 0
+--- !u!95 &1365005321
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365005315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2646e5d75d538b442b44b506d299bde4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1375542035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5202,6 +5295,7 @@ GameObject:
   - component: {fileID: 1638297334}
   - component: {fileID: 1638297333}
   - component: {fileID: 1638297335}
+  - component: {fileID: 1638297336}
   m_Layer: 6
   m_Name: WhiteSquare
   m_TagString: Untagged
@@ -5245,7 +5339,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5266,8 +5360,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cf30be90c1655d14683394ca7d158ab5, type: 3}
+  m_Color: {r: 0, g: 0.6366434, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5290,18 +5384,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01650476, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1.0975}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5125208, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1638297334
 Rigidbody2D:
@@ -5356,6 +5450,36 @@ MonoBehaviour:
   areAnyTrue: 0
   playbackLocs: 00000000000000000000000000000000
   canIMove: 1
+  ninjaAnimator: {fileID: 0}
+  isMoving: 0
+  previousPosition: 0
+  isGrounded: 0
+  playJump: 0
+  playFall: 0
+  playIdleAgain: 0
+  startCheckingGround: 0
+  direction: 1
+  lockRotation: 0
+--- !u!95 &1638297336
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638297330}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2646e5d75d538b442b44b506d299bde4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1718309414
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +6056,7 @@ GameObject:
   - component: {fileID: 1860543216}
   - component: {fileID: 1860543215}
   - component: {fileID: 1860543217}
+  - component: {fileID: 1860543218}
   m_Layer: 6
   m_Name: RedSquare
   m_TagString: Untagged
@@ -5996,7 +6121,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf30be90c1655d14683394ca7d158ab5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6020,18 +6145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01650476, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.58, y: 1.0975}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5125208, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1860543216
 Rigidbody2D:
@@ -6083,6 +6208,36 @@ MonoBehaviour:
   areAnyTrue: 0
   playbackLocs: 00000000000000000000000000000000
   canIMove: 1
+  ninjaAnimator: {fileID: 0}
+  isMoving: 0
+  previousPosition: 0
+  isGrounded: 0
+  playJump: 0
+  playFall: 0
+  playIdleAgain: 0
+  startCheckingGround: 0
+  direction: 1
+  lockRotation: 0
+--- !u!95 &1860543218
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860543212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2646e5d75d538b442b44b506d299bde4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1888517578
 GameObject:
   m_ObjectHideFlags: 0

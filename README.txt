@@ -1,4 +1,11 @@
+Video Demo: https://www.youtube.com/watch?v=vQ3JP3_Nq8o
+
+GitHub Repo: https://github.com/isaiahsgithub/CleanlyNinjas2D
+
 Name: Isaiah von Uders 
+
+Student Number: 251330269
+
 
 Development Platform: Unity 2D - 2021.3.9f1 (https://unity.com/releases/editor/whats-new/2021.3.9)
 
