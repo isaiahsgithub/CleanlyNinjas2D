@@ -207,54 +207,6 @@ public class moveNinja : MonoBehaviour
             }
 
 
-            if(lockRotation == false)
-            {
-                //Swap the way the ninja is facing depending on how they move.
-                if (direction == 1)
-                {
-                    if (previousPosition - this.gameObject.transform.position.x > 0)
-                    {
-                        //Debug.Log("1");
-                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
-                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
-                        //{
-                        direction = -1;
-                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
-
-                        //}
-                    }
-
-                }
-                if (direction == -1)
-                {
-                    if (previousPosition - this.gameObject.transform.position.x < 0)
-                    {
-                        //Debug.Log("0");
-                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
-                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
-                        //{
-                        direction = 1;
-                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
-                        //}
-
-                    }
-                }
-
-            }
-            else
-            {
-                //When you run into a wall, prevent flipping left/right for 0.5 seconds.
-                unlockTime -= Time.deltaTime;
-                if(unlockTime <= 0)
-                {
-                    lockRotation = false;
-                    unlockTime = 0.5f;
-                }
-            }
-
-
-
-            previousPosition = this.gameObject.transform.position.x;
 
         }
 
@@ -322,6 +274,62 @@ public class moveNinja : MonoBehaviour
                 }
 
             }
+
+
+
+            if (lockRotation == false)
+            {
+                //Swap the way the ninja is facing depending on how they move.
+                if (direction == 1)
+                {
+                    if (previousPosition - this.gameObject.transform.position.x > 0)
+                    {
+                        //Debug.Log("1");
+                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
+                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
+                        //{
+                        direction = -1;
+                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
+
+                        //}
+                    }
+
+                }
+                if (direction == -1)
+                {
+                    if (previousPosition - this.gameObject.transform.position.x < 0)
+                    {
+                        //Debug.Log("0");
+                        //Debug.Log(Mathf.Abs(previousPosition - this.gameObject.transform.position.x));
+                        //if (Mathf.Abs(previousPosition - this.gameObject.transform.position.x) > 0.045f)
+                        //{
+                        direction = 1;
+                        this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
+                        //}
+
+                    }
+                }
+
+            }
+            else
+            {
+                //When you run into a wall, prevent flipping left/right for 0.5 seconds.
+                unlockTime -= Time.deltaTime;
+                if (unlockTime <= 0)
+                {
+                    lockRotation = false;
+                    unlockTime = 0.5f;
+                }
+            }
+
+
+
+            previousPosition = this.gameObject.transform.position.x;
+
+
+
+
+
         }
         
     }
