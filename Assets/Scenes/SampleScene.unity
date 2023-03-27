@@ -7828,9 +7828,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOptions:
-  - Welcome to the Tutorial. You can move with the arrow keys and press the UP arrow
+  - ', go through the portal. You can move with the arrow keys and press the UP arrow
     key to jump. The collectable object for this game is soap. Try collecting them
-    all! When you're ready, go through the portal.
+    all! When you''re ready, go through the portal. If you want to return to the
+    main menu, press the ESC key.'
   - Sometimes there will be blockages that block off certain locations of the map.
     By walking through the lever you can activate it, removing the blockage. Red
     indicates off, Green indicates on.
