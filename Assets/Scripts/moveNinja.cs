@@ -363,43 +363,46 @@ public class moveNinja : MonoBehaviour
         }
 
         //You can only end your turn if you aren't the final ninja
+        
         if(nextNinja != null)
         {
             if (Input.GetKeyDown("space"))
             {
-                //Increment the ninja count by 1, to inform the player they are playing as a new ninja.
-                ninjaCountUI.GetComponent<whichNinjaPlayedAs>().updateNinjaCount();
-                ninjaCountUI.GetComponent<whichNinjaPlayedAs>().updateNinjaCountText();
+                    //Increment the ninja count by 1, to inform the player they are playing as a new ninja.
+                    ninjaCountUI.GetComponent<whichNinjaPlayedAs>().updateNinjaCount();
+                    ninjaCountUI.GetComponent<whichNinjaPlayedAs>().updateNinjaCountText();
 
-               
 
-                //Inform the player they can do a full restart now via the F key. (For starting room text in the tutorial only).
-                tutorialTextBox.GetComponent<tutorialText>().textOptions[0] = "Not happy with your overall performance? " +
-                    "Press the \"F\" key to completely restart this level. Welcome to the Tutorial. You can move with the arrow keys " +
-                    "and press the UP arrow key to jump. The collectable object for this game is soap. " +
-                    "Try collecting them all! When you're ready, go through the door.";
 
-               //End turn
-               startRecord = false;
+                    //Inform the player they can do a full restart now via the F key. (For starting room text in the tutorial only).
+                    tutorialTextBox.GetComponent<tutorialText>().textOptions[0] = "Not happy with your overall performance? " +
+                        "Press the \"F\" key to completely restart this level. Welcome to the Tutorial. You can move with the arrow keys " +
+                        "and press the UP arrow key to jump. The collectable object for this game is soap. " +
+                        "Try collecting them all! When you're ready, go through the door.";
 
-                //make bool to enable movement
-                canIMove = false;
+                    //End turn
+                    startRecord = false;
 
-                //change opacity of ninja clones to be lower than the currently controlled player ninja (clones go to 37.5% opacity).
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r,
-                    this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b, 0.375f);
+                    //make bool to enable movement
+                    canIMove = false;
 
-                //Restore original values of map objects
-                restartStuff();
+                    //change opacity of ninja clones to be lower than the currently controlled player ninja (clones go to 37.5% opacity).
+                    this.gameObject.GetComponent<SpriteRenderer>().color = new Color(this.gameObject.GetComponent<SpriteRenderer>().color.r,
+                        this.gameObject.GetComponent<SpriteRenderer>().color.g, this.gameObject.GetComponent<SpriteRenderer>().color.b, 0.375f);
 
-                //Show the "Ready _ Ninja" Overlay UI.
-                overlayUI.SetActive(true);
-                overlayUI.GetComponentInChildren<overlayManager>().displayText();
+                    //Restore original values of map objects
+                    restartStuff();
 
-                //Enable next ninja
-                nextNinja.SetActive(true);
+                    //Show the "Ready _ Ninja" Overlay UI.
+                    overlayUI.SetActive(true);
+                    overlayUI.GetComponentInChildren<overlayManager>().displayText();
+
+                    //Enable next ninja
+                    nextNinja.SetActive(true);
+                
             }
         }
+        
 
 
     }
@@ -418,6 +421,12 @@ public class moveNinja : MonoBehaviour
     {
         //Prevents the object from going to sleep. Source: "YagoRG" - https://answers.unity.com/questions/478415/ontriggerstay-doesnt-work-if-not-moving.html (This is for colliding with buttons)
         pN.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.zero);
+
+        //Bug fix, if the player immediately ends their turn on a ninja clone, don't attempt playback.
+        if(pN.GetComponent<moveNinja>().playerPosition.Count == 0)
+        {
+            return;
+        }
 
         //For the specific previous ninja, update their position to their recorded position.
         pN.transform.position = pN.GetComponent<moveNinja>().playerPosition[playbackLocs[theIndex]];
@@ -440,7 +449,7 @@ public class moveNinja : MonoBehaviour
     {
 
         //Reset text position (if in tutorial only)
-        if (tutorialTextBox != null)
+        if (mainCamera.transform.position.x == 0)
         {
             tutorialTextBox.GetComponent<tutorialText>().textPosition = 0;
             tutorialTextBox.text = tutorialTextBox.GetComponent<tutorialText>().textOptions[tutorialTextBox.GetComponent<tutorialText>().textPosition];

@@ -14,10 +14,16 @@ public class teleporter : MonoBehaviour
     //For the tutorial, when the game starts show the initial tutorial text.
     private void Start()
     {
-        if(tutorialTextBox != null)
+        //If in tutorial, show tutorial text (level is determined by where camera is, X=0 = tutorial.)
+        if(mainCamera.transform.position.x == 0)
         {
             possibleTextOptions = tutorialTextBox.GetComponent<tutorialText>().textOptions;
             tutorialTextBox.text = possibleTextOptions[tutorialTextBox.GetComponent<tutorialText>().textPosition];
+        }
+        else
+        {
+            //If not in tutorial, dont show text
+            tutorialTextBox.text = "";
         }
     }
 
@@ -33,8 +39,8 @@ public class teleporter : MonoBehaviour
                 //Have the camera show the next part of the level.
                 mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, (mainCamera.transform.position.y - 15.5f), mainCamera.transform.position.z);
             }
-            //If we are in the tutorial, update the informative text.
-            if (tutorialTextBox != null)
+            //If we are in the tutorial, update the informative text. (Camera position determines which level player is doing.)
+            if (mainCamera.transform.position.x == 0)
             {
                 //Only update the text if the ninja who enters the door is the primary ninja (i.e. don't update text if a clone passes through a door).
                 if(collision.gameObject.GetComponent<moveNinja>().canIMove == true)

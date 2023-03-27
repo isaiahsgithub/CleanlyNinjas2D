@@ -23,6 +23,18 @@ public class howMuchSoap : MonoBehaviour
         {
             maxSoap = 1;
         }
+        else if (mainCamera.transform.position.x == 60 && mainCamera.transform.position.y == 0)
+        {
+            maxSoap = 14;
+        }
+        else if (mainCamera.transform.position.x == 120 && mainCamera.transform.position.y == 0)
+        {
+            maxSoap = 22;
+        }
+        else if (mainCamera.transform.position.x == 180 && mainCamera.transform.position.y == 0)
+        {
+            maxSoap = 8;
+        }
         //TODO: OTHER LOCATIONS
         /*else if(mainCamera.transform.position.x == NEW_VALUE && mainCamera.transform.position.y == NEW_VALUE)
         {

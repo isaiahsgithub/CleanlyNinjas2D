@@ -50,7 +50,10 @@ public class endFlag : MonoBehaviour
 
             //TODO - check if this works for later levels when the soap count is greater than 1 digit (as we are only checking 1 digit right now).
             //Determine if the player performed a 100% run or an any% run (did not collect all soap)
-            if (int.Parse(soapCollectedText.text.Substring(0, 1)) == soapInfo.GetComponent<howMuchSoap>().maxSoap)
+            //if (int.Parse(soapCollectedText.text.Substring(0, 1)) == soapInfo.GetComponent<howMuchSoap>().maxSoap)
+
+            int soapCollectedPieces = getNumerator(soapCollectedText.text);
+            if(soapCollectedPieces == soapInfo.GetComponent<howMuchSoap>().maxSoap)
             {
                 endPrompt += "100% \n";
                 anyPercent = false;
@@ -84,6 +87,63 @@ public class endFlag : MonoBehaviour
                 //Check if a PB is made, if so save it
                 overlayUI.GetComponent<loaderSaver>().loadToCheckIfSave(theFileName, minutes, seconds);
             }
+            else if (mainCamera.transform.position.x == 60.00)
+            {
+                //We are in the level 1: (1)
+                if (anyPercent == true)
+                {
+                    theFileName = "/11.txt";
+                }
+                else
+                {
+                    theFileName = "/10.txt";
+                }
+
+                //Converts the players time into proper minutes and seconds
+                int minutes = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime / 60);
+                int seconds = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime % 60);
+
+                //Check if a PB is made, if so save it
+                overlayUI.GetComponent<loaderSaver>().loadToCheckIfSave(theFileName, minutes, seconds);
+            }
+            else if (mainCamera.transform.position.x == 120.00)
+            {
+                //We are in the level 2: (2)
+                if (anyPercent == true)
+                {
+                    theFileName = "/21.txt";
+                }
+                else
+                {
+                    theFileName = "/20.txt";
+                }
+
+                //Converts the players time into proper minutes and seconds
+                int minutes = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime / 60);
+                int seconds = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime % 60);
+
+                //Check if a PB is made, if so save it
+                overlayUI.GetComponent<loaderSaver>().loadToCheckIfSave(theFileName, minutes, seconds);
+            }
+            else if (mainCamera.transform.position.x == 180.00)
+            {
+                //We are in the level 3: (3)
+                if (anyPercent == true)
+                {
+                    theFileName = "/31.txt";
+                }
+                else
+                {
+                    theFileName = "/30.txt";
+                }
+
+                //Converts the players time into proper minutes and seconds
+                int minutes = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime / 60);
+                int seconds = Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime % 60);
+
+                //Check if a PB is made, if so save it
+                overlayUI.GetComponent<loaderSaver>().loadToCheckIfSave(theFileName, minutes, seconds);
+            }
 
             //Show a button saying "Return to main menu" and a button that enables a restart.
             //When button is clicked,  change ninja to 1, run displayText(), hide all the elements, return to main menu or restart the level. (other script)
@@ -92,8 +152,29 @@ public class endFlag : MonoBehaviour
 
         }
 
+        
 
 
+    }
 
+    public int getNumerator(string frac)
+    {
+        string strNum = "";
+        foreach(char c in frac)
+        {
+            if (c == '/')
+            {
+                break;
+            }
+            else
+            {
+                strNum += c;
+            }
+        }
+        if (strNum == "")
+        {
+            strNum = "-99999";
+        }
+        return int.Parse(strNum);
     }
 }

@@ -788,7 +788,7 @@ Transform:
   - {fileID: 126083505}
   - {fileID: 1638297331}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &64461360
 MonoBehaviour:
@@ -6954,7 +6954,7 @@ Transform:
   - {fileID: 1382032154}
   - {fileID: 1747665074}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507437800
 GameObject:
@@ -7097,7 +7097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -9922,6 +9922,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &741722827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741722829}
+  - component: {fileID: 741722828}
+  m_Layer: 0
+  m_Name: DeterminePositionObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &741722828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741722827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc3903cce50d4f4b95fd3b41e6a297c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ninjas:
+  - {fileID: 1021739068}
+  - {fileID: 1860543212}
+  - {fileID: 1365005315}
+  - {fileID: 126083504}
+  - {fileID: 1638297330}
+  mainCamera: {fileID: 519420031}
+--- !u!4 &741722829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741722827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747868877
 GameObject:
   m_ObjectHideFlags: 0
@@ -13214,7 +13265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915557306
 GameObject:
@@ -14387,7 +14438,7 @@ Transform:
   - {fileID: 397776217}
   - {fileID: 67922250}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &969830774
 GameObject:
@@ -15326,8 +15377,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1810632647}
   - {fileID: 1562694434}
+  - {fileID: 1810632647}
   - {fileID: 107616466}
   - {fileID: 1781931949}
   m_Father: {fileID: 1132564055}
@@ -24139,7 +24190,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1015756396}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1562694435
 MonoBehaviour:
@@ -24154,7 +24205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonOnSprite: {fileID: 21300000, guid: 37b7dd42949ee4d488a92e43ee8296b2, type: 3}
-  blockageObject: {fileID: 1024861221}
+  blockageObject: {fileID: 1196247160}
 --- !u!61 &1562694436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27406,7 +27457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726609429
 GameObject:
@@ -28381,7 +28432,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1015756396}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1810632648
 MonoBehaviour:
@@ -28396,7 +28447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonOnSprite: {fileID: 21300000, guid: 37b7dd42949ee4d488a92e43ee8296b2, type: 3}
-  blockageObject: {fileID: 1196247160}
+  blockageObject: {fileID: 1024861221}
 --- !u!61 &1810632649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33095,7 +33146,7 @@ RectTransform:
   m_Children:
   - {fileID: 556955631}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -6,20 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuBtns : MonoBehaviour
 {
-    [SerializeField] Button lvlSelectionScreenBtn;
-
-    //DELETE WHEN GAME IS READY TO GO
-    void Start()
-    {
-        lvlSelectionScreenBtn.gameObject.SetActive(false);
-
-       
-    }
+    
 
    public void lvlSelect()
     {
         //Load up level selection screen scene
-        //SceneManager.LoadScene("LevelSelectionScene");
+        SceneManager.LoadScene("LevelSelectScene");
     }
 
 
