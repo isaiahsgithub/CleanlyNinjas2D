@@ -33,7 +33,7 @@ public class endFlag : MonoBehaviour
             //TODO Play sound effect
 
 
-
+            int soapCollectedPieces = getNumerator(soapCollectedText.text);
 
             //Show UI
             overlayUI.SetActive(true);
@@ -45,14 +45,14 @@ public class endFlag : MonoBehaviour
             //Category qualified for (100% or any% clear) \n
             //Minutes and seconds source: https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
             string endPrompt = string.Format("Level cleared! \n Time taken: {0:00}:{1:00} \n " +
-                "Soap collected: " + soapCollectedText.text.Substring(0, 1) + " \n Category qualified for: ", 
+                "Soap collected: " + soapCollectedPieces + " \n Category qualified for: ", 
                 Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime / 60), Mathf.FloorToInt(timeObj.gameObject.GetComponent<timeManager>().theTime % 60));
 
             //TODO - check if this works for later levels when the soap count is greater than 1 digit (as we are only checking 1 digit right now).
             //Determine if the player performed a 100% run or an any% run (did not collect all soap)
             //if (int.Parse(soapCollectedText.text.Substring(0, 1)) == soapInfo.GetComponent<howMuchSoap>().maxSoap)
 
-            int soapCollectedPieces = getNumerator(soapCollectedText.text);
+            
             if(soapCollectedPieces == soapInfo.GetComponent<howMuchSoap>().maxSoap)
             {
                 endPrompt += "100% \n";

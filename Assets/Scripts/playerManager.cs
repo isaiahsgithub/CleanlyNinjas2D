@@ -18,6 +18,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] GameObject soapCountUI;
 
     [SerializeField] GameObject overlayUI;
+    [SerializeField] Camera mainCamera;
 
     public List<Transform> allSoap;
 
@@ -27,8 +28,9 @@ public class playerManager : MonoBehaviour
     Vector3 redInitialPosition;
     Vector3 yellowInitialPosition;
     Vector3 greenInitialPosition;
-    Vector3 whiteInitialPosition; 
-    
+    Vector3 whiteInitialPosition;
+
+    Vector3 playerStartPosition;
     
     void Start()
     {
@@ -55,11 +57,30 @@ public class playerManager : MonoBehaviour
         //Restart one of the clones
         if(Input.GetKeyDown("r"))
         {
+            playerStartPosition.y = -3.48f;
+            playerStartPosition.z = 0f;
+            if (mainCamera.transform.position.x == 0)
+            {
+                playerStartPosition.x = -10f;
+            }
+            else if(mainCamera.transform.position.x == 60)
+            {
+                playerStartPosition.x = 50f;
+            }
+            else if(mainCamera.transform.position.x == 120)
+            {
+                playerStartPosition.x = 110f;
+            }
+            else if(mainCamera.transform.position.x == 180)
+            {
+                playerStartPosition.x = 170f;
+            }
+
             //Determine which ninja pressed the r key, and reset the values accordingly.
             if (purpleNinja.GetComponent<moveNinja>().canIMove == true)
             {
                 
-                purpleNinja.transform.position = new Vector3(purpleInitialPosition.x, purpleInitialPosition.y, purpleInitialPosition.z);
+                purpleNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
                 purpleNinja.GetComponent<moveNinja>().restartStuff();
                 purpleNinja.GetComponent<moveNinja>().startRecord = false;
                 purpleNinja.GetComponent<moveNinja>().playerPosition.Clear();
@@ -78,7 +99,7 @@ public class playerManager : MonoBehaviour
             }
             else if(redNinja.GetComponent<moveNinja>().canIMove == true)
             {
-                redNinja.transform.position = new Vector3(redInitialPosition.x, redInitialPosition.y, redInitialPosition.z);
+                redNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
                 redNinja.GetComponent<moveNinja>().restartStuff();
                 redNinja.GetComponent<moveNinja>().startRecord = false;
                 redNinja.GetComponent<moveNinja>().playerPosition.Clear();
@@ -97,7 +118,7 @@ public class playerManager : MonoBehaviour
             }
             else if(yellowNinja.GetComponent<moveNinja>().canIMove == true)
             {
-                yellowNinja.transform.position = new Vector3(yellowInitialPosition.x, yellowInitialPosition.y, yellowInitialPosition.z);
+                yellowNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
                 yellowNinja.GetComponent<moveNinja>().restartStuff();
                 yellowNinja.GetComponent<moveNinja>().startRecord = false;
                 yellowNinja.GetComponent<moveNinja>().playerPosition.Clear();
@@ -116,7 +137,7 @@ public class playerManager : MonoBehaviour
             }
             else if (greenNinja.GetComponent<moveNinja>().canIMove == true)
             {
-                greenNinja.transform.position = new Vector3(greenInitialPosition.x, greenInitialPosition.y, greenInitialPosition.z);
+                greenNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
                 greenNinja.GetComponent<moveNinja>().restartStuff();
                 greenNinja.GetComponent<moveNinja>().startRecord = false;
                 greenNinja.GetComponent<moveNinja>().playerPosition.Clear();
@@ -135,7 +156,7 @@ public class playerManager : MonoBehaviour
             }
             else if(whiteNinja.GetComponent<moveNinja>().canIMove == true)
             {
-                whiteNinja.transform.position = new Vector3(whiteInitialPosition.x, whiteInitialPosition.y, whiteInitialPosition.z);
+                whiteNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
                 whiteNinja.GetComponent<moveNinja>().restartStuff();
                 whiteNinja.GetComponent<moveNinja>().startRecord = false;
                 whiteNinja.GetComponent<moveNinja>().playerPosition.Clear();
