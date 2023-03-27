@@ -401,7 +401,11 @@ public class moveNinja : MonoBehaviour
                         "Press the \"F\" key to completely restart this level. Welcome to the Tutorial. You can move with the arrow keys " +
                         "and press the UP arrow key to jump. The collectable object for this game is soap. " +
                         "Try collecting them all! When you're ready, go through the portal. " + "If you want to return to the main menu, press the ESC key.";
-
+                /*
+                 * Welcome to the Tutorial. You can move with the arrow keys 
+                        and press the UP arrow key to jump. The collectable object for this game is soap. 
+                        Try collecting them all! When you're ready, go through the portal. If you want to return to the main menu, press the ESC key.
+                 * */
                 //End turn
                 startRecord = false;
 

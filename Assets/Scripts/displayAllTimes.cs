@@ -66,9 +66,12 @@ public class displayAllTimes : MonoBehaviour
         //Hide text
         LQA.gameObject.SetActive(false);
         LQF.gameObject.SetActive(false);
+       
+    }
 
-
-        if(L3F.text != "100 %: 99:59" && L2F.text != "100 %: 99:59" && L1F.text != "100 %: 99:59")
+    private void Update()
+    {
+        if (L3F.text != "100 %: 99:59" && L2F.text != "100 %: 99:59" && L1F.text != "100 %: 99:59")
         {
             suspiciousButton.enabled = true;
             suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 1f);
@@ -76,6 +79,4 @@ public class displayAllTimes : MonoBehaviour
         }
     }
 
-
-    
 }

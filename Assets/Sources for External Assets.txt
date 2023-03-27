@@ -1,5 +1,9 @@
 Main Menu Music: https://www.youtube.com/watch?v=EHGYpguV7uw&list=PLE9B40A1826A88E5A&index=1
-Level Music: https://www.youtube.com/watch?v=7U4t4zaUUpE
+Level Music: https://www.youtube.com/watch?v=9N3e89Gu994&list=PLTk3uVTYK7eqR52Z8qTX5RCCiQXI93S-F&index=25
+Level Selection Screen Music: https://www.youtube.com/watch?v=h4jrzP8MWqs&list=PLE9B40A1826A88E5A&index=4
+Soap Collection Sound Effect: https://www.youtube.com/watch?v=KsDg-ggEOvk
+
+
 Ninja Texture: https://www.gameart2d.com/ninja-adventure---free-sprites.html
 
 Portal: pngtree.com/freepng/the-black-hole-in-space_448838.html?share=1
@@ -7,3 +11,8 @@ Background: https://img.freepik.com/free-vector/cartoon-laboratory-room-with-equ
 Trash Can: https://media.istockphoto.com/id/1198975369/vector/full-metal-trash-can-overflowing-with-food-waste-dirty-garbage-container.jpg?s=612x612&w=0&k=20&c=J7IJXaBrz9cb--_zriSphZui1dRifi4sTJrM8pcO4tI=
 
 To make smoke effect (reference): https://forums.getpaint.net/topic/28094-smoke-effects-no-plugins/#comment-423264
+
+
+Cartoon House (intro cutscene): http://clipart-library.com/clipart/1555048.htm
+Cell Doors (outro cutscene): https://www.istockphoto.com/vector/prison-icon-on-transparent-background-gm1283626680-380995512
+bubbles (outro cutscene): https://www.pngegg.com/en/png-bvdos

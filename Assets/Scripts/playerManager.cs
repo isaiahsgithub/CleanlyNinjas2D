@@ -55,122 +55,126 @@ public class playerManager : MonoBehaviour
     private void Update()
     {
         //Restart one of the clones
-        if(Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r"))
         {
-            playerStartPosition.y = -3.48f;
-            playerStartPosition.z = 0f;
-            if (mainCamera.transform.position.x == 0)
-            {
-                playerStartPosition.x = -10f;
-            }
-            else if(mainCamera.transform.position.x == 60)
-            {
-                playerStartPosition.x = 50f;
-            }
-            else if(mainCamera.transform.position.x == 120)
-            {
-                playerStartPosition.x = 110f;
-            }
-            else if(mainCamera.transform.position.x == 180)
-            {
-                playerStartPosition.x = 170f;
-            }
+            //Bug fix, you can't restart a character while the overlay is active.
+            if(overlayUI.activeInHierarchy == false) { 
 
-            //Determine which ninja pressed the r key, and reset the values accordingly.
-            if (purpleNinja.GetComponent<moveNinja>().canIMove == true)
-            {
-                
-                purpleNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
-                purpleNinja.GetComponent<moveNinja>().restartStuff();
-                purpleNinja.GetComponent<moveNinja>().startRecord = false;
-                purpleNinja.GetComponent<moveNinja>().playerPosition.Clear();
-                purpleNinja.GetComponent<moveNinja>().enabled = false;
-                purpleNinja.GetComponent<moveNinja>().enabled = true;
-                purpleNinja.GetComponent<moveNinja>().startRecord = true;
-                purpleNinja.GetComponent<moveNinja>().playbackLocs = new int[]{0,0,0,0};
-                purpleNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
-                purpleNinja.GetComponent<moveNinja>().areAnyTrue = false;
-
-
-                foreach (Transform soapObjs in allSoap)
+                playerStartPosition.y = -3.48f;
+                playerStartPosition.z = 0f;
+                if (mainCamera.transform.position.x == 0)
                 {
-                    soapObjs.GetComponent<collectSoap>().resetSoap(purpleNinja);
+                    playerStartPosition.x = -10f;
                 }
-            }
-            else if(redNinja.GetComponent<moveNinja>().canIMove == true)
-            {
-                redNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
-                redNinja.GetComponent<moveNinja>().restartStuff();
-                redNinja.GetComponent<moveNinja>().startRecord = false;
-                redNinja.GetComponent<moveNinja>().playerPosition.Clear();
-                redNinja.GetComponent<moveNinja>().enabled = false;
-                redNinja.GetComponent<moveNinja>().enabled = true;
-                redNinja.GetComponent<moveNinja>().startRecord = true;
-                redNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
-                redNinja.GetComponent<moveNinja>().startPlay = true;
-                redNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
-                redNinja.GetComponent<moveNinja>().areAnyTrue = false;
-
-                foreach (Transform soapObjs in allSoap)
+                else if (mainCamera.transform.position.x == 60)
                 {
-                    soapObjs.GetComponent<collectSoap>().resetSoap(redNinja);
+                    playerStartPosition.x = 50f;
                 }
-            }
-            else if(yellowNinja.GetComponent<moveNinja>().canIMove == true)
-            {
-                yellowNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
-                yellowNinja.GetComponent<moveNinja>().restartStuff();
-                yellowNinja.GetComponent<moveNinja>().startRecord = false;
-                yellowNinja.GetComponent<moveNinja>().playerPosition.Clear();
-                yellowNinja.GetComponent<moveNinja>().enabled = false;
-                yellowNinja.GetComponent<moveNinja>().enabled = true;
-                yellowNinja.GetComponent<moveNinja>().startRecord = true;
-                yellowNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
-                yellowNinja.GetComponent<moveNinja>().startPlay = true;
-                yellowNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
-                yellowNinja.GetComponent<moveNinja>().areAnyTrue = false;
-
-                foreach (Transform soapObjs in allSoap)
+                else if (mainCamera.transform.position.x == 120)
                 {
-                    soapObjs.GetComponent<collectSoap>().resetSoap(yellowNinja);
+                    playerStartPosition.x = 110f;
                 }
-            }
-            else if (greenNinja.GetComponent<moveNinja>().canIMove == true)
-            {
-                greenNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
-                greenNinja.GetComponent<moveNinja>().restartStuff();
-                greenNinja.GetComponent<moveNinja>().startRecord = false;
-                greenNinja.GetComponent<moveNinja>().playerPosition.Clear();
-                greenNinja.GetComponent<moveNinja>().enabled = false;
-                greenNinja.GetComponent<moveNinja>().enabled = true;
-                greenNinja.GetComponent<moveNinja>().startRecord = true;
-                greenNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
-                greenNinja.GetComponent<moveNinja>().startPlay = true;
-                greenNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
-                greenNinja.GetComponent<moveNinja>().areAnyTrue = false;
-
-                foreach (Transform soapObjs in allSoap)
+                else if (mainCamera.transform.position.x == 180)
                 {
-                    soapObjs.GetComponent<collectSoap>().resetSoap(greenNinja);
+                    playerStartPosition.x = 170f;
                 }
-            }
-            else if(whiteNinja.GetComponent<moveNinja>().canIMove == true)
-            {
-                whiteNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
-                whiteNinja.GetComponent<moveNinja>().restartStuff();
-                whiteNinja.GetComponent<moveNinja>().startRecord = false;
-                whiteNinja.GetComponent<moveNinja>().playerPosition.Clear();
-                whiteNinja.GetComponent<moveNinja>().enabled = false;
-                whiteNinja.GetComponent<moveNinja>().enabled = true;
-                whiteNinja.GetComponent<moveNinja>().startRecord = true;
-                whiteNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
-                whiteNinja.GetComponent<moveNinja>().startPlay = true;
-                whiteNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
-                whiteNinja.GetComponent<moveNinja>().areAnyTrue = false;
 
-                foreach (Transform soapObjs in allSoap)
+                //Determine which ninja pressed the r key, and reset the values accordingly.
+                if (purpleNinja.GetComponent<moveNinja>().canIMove == true)
                 {
-                    soapObjs.GetComponent<collectSoap>().resetSoap(whiteNinja);
+
+                    purpleNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
+                    purpleNinja.GetComponent<moveNinja>().restartStuff();
+                    purpleNinja.GetComponent<moveNinja>().startRecord = false;
+                    purpleNinja.GetComponent<moveNinja>().playerPosition.Clear();
+                    purpleNinja.GetComponent<moveNinja>().enabled = false;
+                    purpleNinja.GetComponent<moveNinja>().enabled = true;
+                    purpleNinja.GetComponent<moveNinja>().startRecord = true;
+                    purpleNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
+                    purpleNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
+                    purpleNinja.GetComponent<moveNinja>().areAnyTrue = false;
+
+
+                    foreach (Transform soapObjs in allSoap)
+                    {
+                        soapObjs.GetComponent<collectSoap>().resetSoap(purpleNinja);
+                    }
+                }
+                else if (redNinja.GetComponent<moveNinja>().canIMove == true)
+                {
+                    redNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
+                    redNinja.GetComponent<moveNinja>().restartStuff();
+                    redNinja.GetComponent<moveNinja>().startRecord = false;
+                    redNinja.GetComponent<moveNinja>().playerPosition.Clear();
+                    redNinja.GetComponent<moveNinja>().enabled = false;
+                    redNinja.GetComponent<moveNinja>().enabled = true;
+                    redNinja.GetComponent<moveNinja>().startRecord = true;
+                    redNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
+                    redNinja.GetComponent<moveNinja>().startPlay = true;
+                    redNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
+                    redNinja.GetComponent<moveNinja>().areAnyTrue = false;
+
+                    foreach (Transform soapObjs in allSoap)
+                    {
+                        soapObjs.GetComponent<collectSoap>().resetSoap(redNinja);
+                    }
+                }
+                else if (yellowNinja.GetComponent<moveNinja>().canIMove == true)
+                {
+                    yellowNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
+                    yellowNinja.GetComponent<moveNinja>().restartStuff();
+                    yellowNinja.GetComponent<moveNinja>().startRecord = false;
+                    yellowNinja.GetComponent<moveNinja>().playerPosition.Clear();
+                    yellowNinja.GetComponent<moveNinja>().enabled = false;
+                    yellowNinja.GetComponent<moveNinja>().enabled = true;
+                    yellowNinja.GetComponent<moveNinja>().startRecord = true;
+                    yellowNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
+                    yellowNinja.GetComponent<moveNinja>().startPlay = true;
+                    yellowNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
+                    yellowNinja.GetComponent<moveNinja>().areAnyTrue = false;
+
+                    foreach (Transform soapObjs in allSoap)
+                    {
+                        soapObjs.GetComponent<collectSoap>().resetSoap(yellowNinja);
+                    }
+                }
+                else if (greenNinja.GetComponent<moveNinja>().canIMove == true)
+                {
+                    greenNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
+                    greenNinja.GetComponent<moveNinja>().restartStuff();
+                    greenNinja.GetComponent<moveNinja>().startRecord = false;
+                    greenNinja.GetComponent<moveNinja>().playerPosition.Clear();
+                    greenNinja.GetComponent<moveNinja>().enabled = false;
+                    greenNinja.GetComponent<moveNinja>().enabled = true;
+                    greenNinja.GetComponent<moveNinja>().startRecord = true;
+                    greenNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
+                    greenNinja.GetComponent<moveNinja>().startPlay = true;
+                    greenNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
+                    greenNinja.GetComponent<moveNinja>().areAnyTrue = false;
+
+                    foreach (Transform soapObjs in allSoap)
+                    {
+                        soapObjs.GetComponent<collectSoap>().resetSoap(greenNinja);
+                    }
+                }
+                else if (whiteNinja.GetComponent<moveNinja>().canIMove == true)
+                {
+                    whiteNinja.transform.position = new Vector3(playerStartPosition.x, playerStartPosition.y, playerStartPosition.z);
+                    whiteNinja.GetComponent<moveNinja>().restartStuff();
+                    whiteNinja.GetComponent<moveNinja>().startRecord = false;
+                    whiteNinja.GetComponent<moveNinja>().playerPosition.Clear();
+                    whiteNinja.GetComponent<moveNinja>().enabled = false;
+                    whiteNinja.GetComponent<moveNinja>().enabled = true;
+                    whiteNinja.GetComponent<moveNinja>().startRecord = true;
+                    whiteNinja.GetComponent<moveNinja>().playbackLocs = new int[] { 0, 0, 0, 0 };
+                    whiteNinja.GetComponent<moveNinja>().startPlay = true;
+                    whiteNinja.GetComponent<moveNinja>().startAllPlays = new bool[] { true, true, true, true };
+                    whiteNinja.GetComponent<moveNinja>().areAnyTrue = false;
+
+                    foreach (Transform soapObjs in allSoap)
+                    {
+                        soapObjs.GetComponent<collectSoap>().resetSoap(whiteNinja);
+                    }
                 }
             }
 

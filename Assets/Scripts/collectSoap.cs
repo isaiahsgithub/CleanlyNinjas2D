@@ -9,6 +9,7 @@ public class collectSoap : MonoBehaviour
 
     GameObject whoCollectedTheSoap = null;
     [SerializeField] GameObject soapCountUI;
+    [SerializeField] GameObject soapSound; 
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +17,7 @@ public class collectSoap : MonoBehaviour
         //When the Ninja interacts with the soap, update the soap count. Then hide the soap, so it can't be collected again for the remainder of the level.
         if (collision.gameObject.name.Contains("Purple") || collision.gameObject.name.Contains("Red") || collision.gameObject.name.Contains("Yellow") || collision.gameObject.name.Contains("Green") || collision.gameObject.name.Contains("White"))
         {
-
+            soapSound.GetComponent<AudioSource>().Play();
             soapCountUI.GetComponent<howMuchSoap>().updateSoapHeld();
             soapCountUI.GetComponent<howMuchSoap>().updateSoapHeldText();
             whoCollectedTheSoap = collision.gameObject;
