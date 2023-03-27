@@ -16,7 +16,7 @@ public class lvlSelectButtonScript : MonoBehaviour
     {
         //Prevent clicking on the button, and reduce its opacity.
         suspiciousButton.enabled = false;
-        suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 0.5f);
+        suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 0.35f);
         lvlCameraPosition.transform.position = new Vector3(0, 0, -10);
         playerPosition.transform.position = new Vector3(-10f, -3.48f, 0f);
         DontDestroyOnLoad(lvlCameraPosition);
@@ -49,6 +49,11 @@ public class lvlSelectButtonScript : MonoBehaviour
         lvlCameraPosition.transform.position = new Vector3(180, 0, -10);
         playerPosition.transform.position = new Vector3(170f, -3.48f, 0f);
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void completeRewardBtn()
+    {
+        Debug.Log("here");
     }
 
 }

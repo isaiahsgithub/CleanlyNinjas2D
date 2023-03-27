@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class displayAllTimes : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class displayAllTimes : MonoBehaviour
     [SerializeField] TextMeshProUGUI L3A;
     [SerializeField] TextMeshProUGUI L3F;
 
-
+    [SerializeField] Button suspiciousButton;
 
     [SerializeField] TextMeshProUGUI LQA;
     [SerializeField] TextMeshProUGUI LQF;
@@ -65,6 +66,14 @@ public class displayAllTimes : MonoBehaviour
         //Hide text
         LQA.gameObject.SetActive(false);
         LQF.gameObject.SetActive(false);
+
+
+        if(L3F.text != "100 %: 99:59" && L2F.text != "100 %: 99:59" && L1F.text != "100 %: 99:59")
+        {
+            suspiciousButton.enabled = true;
+            suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 1f);
+
+        }
     }
 
 

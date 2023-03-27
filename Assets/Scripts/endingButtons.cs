@@ -37,6 +37,19 @@ public class endingButtons : MonoBehaviour
         timeObj.gameObject.GetComponent<timeManager>().resetTime();
         retryBtn.gameObject.SetActive(false);
         returnBtn.gameObject.SetActive(false);
+        
+        //Destroy the DontDestroyOnLoad objects so that when the player completes one level and moves to the next,
+        //There is no conflicting results on where to set the camera and the player.
+        GameObject chPT = GameObject.FindGameObjectWithTag("characterPositionTag");
+        GameObject caPT = GameObject.FindGameObjectWithTag("cameraPositionTag");
+        if(chPT != null)
+        {
+            Destroy(chPT);
+        }
+        if(caPT != null)
+        {
+            Destroy(caPT);
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }
