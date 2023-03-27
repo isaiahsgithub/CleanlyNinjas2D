@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class lvlSelectButtonScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class lvlSelectButtonScript : MonoBehaviour
     private void Start()
     {
         //Prevent clicking on the button, and reduce its opacity.
+        suspiciousButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "???";
         suspiciousButton.enabled = false;
         suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 0.35f);
         lvlCameraPosition.transform.position = new Vector3(0, 0, -10);
@@ -25,6 +27,17 @@ public class lvlSelectButtonScript : MonoBehaviour
 
     public void returnToMainMenu()
     {
+        GameObject chPT = GameObject.FindGameObjectWithTag("characterPositionTag");
+        GameObject caPT = GameObject.FindGameObjectWithTag("cameraPositionTag");
+        if (chPT != null)
+        {
+            Destroy(chPT);
+        }
+        if (caPT != null)
+        {
+            Destroy(caPT);
+        }
+
         SceneManager.LoadScene("MainMenu");
     }
 

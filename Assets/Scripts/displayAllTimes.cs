@@ -73,6 +73,7 @@ public class displayAllTimes : MonoBehaviour
     {
         if (L3F.text != "100 %: 99:59" && L2F.text != "100 %: 99:59" && L1F.text != "100 %: 99:59")
         {
+            suspiciousButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Epilogue";
             suspiciousButton.enabled = true;
             suspiciousButton.gameObject.GetComponent<Image>().color = new Color(suspiciousButton.gameObject.GetComponent<Image>().color.r, suspiciousButton.gameObject.GetComponent<Image>().color.g, suspiciousButton.gameObject.GetComponent<Image>().color.b, 1f);
 

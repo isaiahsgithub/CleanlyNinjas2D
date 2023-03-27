@@ -337,26 +337,6 @@ public class moveNinja : MonoBehaviour
 
     private void checkToMove()
     {
-        //You can now press ESC to return to the main menu.
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Destroy the DontDestroyOnLoad objects so that when the player ends one level and moves to the next,
-            //There is no conflicting results on where to set the camera and the player.
-            GameObject charP = GameObject.FindGameObjectWithTag("characterPositionTag");
-            GameObject camP = GameObject.FindGameObjectWithTag("cameraPositionTag");
-            if (charP != null)
-            {
-                Destroy(charP);
-            }
-            if (camP != null)
-            {
-                Destroy(camP);
-            }
-
-
-            SceneManager.LoadScene("MainMenu");
-        }
-
 
         //Move left/right. If player lets go of key, they stop moving.
         if (Input.GetKey("left"))
@@ -400,7 +380,7 @@ public class moveNinja : MonoBehaviour
                     tutorialTextBox.GetComponent<tutorialText>().textOptions[0] = "Not happy with your overall performance? " +
                         "Press the \"F\" key to completely restart this level. Welcome to the Tutorial. You can move with the arrow keys " +
                         "and press the UP arrow key to jump. The collectable object for this game is soap. " +
-                        "Try collecting them all! When you're ready, go through the portal. " + "If you want to return to the main menu, press the ESC key.";
+                        "Try collecting them all! When you're ready, go through the portal. " + "To pause/unpause the game or to return to the main menu, press the ESC key.";
                 /*
                  * Welcome to the Tutorial. You can move with the arrow keys 
                         and press the UP arrow key to jump. The collectable object for this game is soap. 
